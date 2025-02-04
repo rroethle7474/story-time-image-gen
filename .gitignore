@@ -27,5 +27,3 @@ dist-ssr
 app.db
 *.db-shm
 *.db-wal
-
-.package-lock.json
