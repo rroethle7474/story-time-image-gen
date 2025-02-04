@@ -8,8 +8,8 @@ router.post('/generate-image', enforceAuth, async (req, res) => {
   try {
     const { prompt, options } = req.body; // options -> aspect_ration, format, quality
     
-    if (!prompt) {
-      return res.status(400).send('Prompt is required');
+    if (!prompt || prompt.trim().length === 0) {
+      return res.status(400).send({error: 'Prompt is required'} );
     }
     const {image, format} = await generateImage(prompt, options);
     res.type(format);
@@ -17,8 +17,7 @@ router.post('/generate-image', enforceAuth, async (req, res) => {
     res.status(201).send(image);
 
   } catch (error) {
-    console.error('Error generating image:', error);
-    res.status(500).send('Internal server error');
+    res.status(500).send({error: 'Internal server error'} );
   }
 });
 

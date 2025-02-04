@@ -11,7 +11,7 @@ export async function generateImage(prompt, options) {
         prompt: prompt,
         aspect_ratio: options.aspect_ration || "1:1",
         output_format: options.format || "webp",
-        output_quality: options.quality || 80,
+        output_quality: +options.quality || 80,
         safety_tolerance: 2,
         prompt_upsampling: true
       };
