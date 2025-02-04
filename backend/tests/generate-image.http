@@ -1,0 +1,9 @@
+POST http://localhost:3000/image/generate-image
+Content-Type: application/json
+Authorization: Bearer <token> // you can get this token from using the login endpoint
+{
+  "prompt": "A beautiful sunset over mountains",
+  "options": {
+    "format": "png"
+  }
+} 
